@@ -1,0 +1,214 @@
+/* ==========================================================================
+   FOODIE - DESIGN SYSTEM & GLOBAL STYLES
+   ========================================================================== */
+
+/* --- Design Tokens / CSS Custom Properties --- */
+:root {
+  /* Colors - Elevated Deep Coral + Saffron + Midnight Palette */
+  --color-primary: #E8400C;        /* Vivid Flame Coral (Bold, deeply appetizing) */
+  --color-primary-light: #FEF0EB;  /* Soft coral blush wash */
+  --color-primary-hover: #C23008;  /* Smoldering ember red */
+  
+  --color-accent: #F5A623;         /* Rich Saffron Gold */
+  --color-accent-light: #FFF8EC;   /* Warm saffron glow */
+  --color-accent-hover: #DC8E0A;   /* Deep burnished gold */
+  
+  --color-text: #1C1410;           /* Near-Black Espresso (Maximum contrast) */
+  --color-text-muted: #5C4A3C;     /* Warm Umber (Readable secondary labels) */
+  
+  --color-bg-base: #FEFCF9;        /* Pearl White (Ultra-clean base) */
+  --color-bg-alt: #F7F0E6;         /* Warm Bisque (Elegant section contrast) */
+  --color-bg-card: #FFFFFF;        /* Pure white for cards */
+  --color-border: #E8D8C4;         /* Warm Caramel Border */
+  --color-border-hover: #C8A882;   /* Rich caramel on hover */
+  
+  --color-success: #1B7F3A;        /* Vibrant Fresh Green */
+  --color-success-light: #E8F5ED;  /* Pale green wash */
+  --color-error: #C62828;          /* Deep Alarm Red */
+  
+  /* Dark Theme Colors - Midnight Kitchen Palette */
+  --color-bg-dark: #100C09;        /* Midnight Espresso Black */
+  --color-bg-dark-card: #1E1510;   /* Rich dark mahogany cards */
+  --color-bg-dark-alt: #2A1E17;    /* Dark sienna alt sections */
+  --color-border-dark: #3D2E24;    /* Deep burnt clay borders */
+  --color-text-dark: #FDF9F4;      /* Warm cream text */
+  --color-text-muted-dark: #B09880;/* Dusty rose-gold secondary labels */
+  
+  /* Typography */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;   /* 8px */
+  --spacing-sm: 1rem;     /* 16px */
+  --spacing-md: 1.5rem;   /* 24px */
+  --spacing-lg: 2.5rem;   /* 40px */
+  --spacing-xl: 4rem;     /* 64px */
+  --spacing-xxl: 6rem;    /* 96px */
+  
+  /* Border Radii (Intentional, tactile shapes) */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 40px;
+  --radius-pill: 9999px;
+  --radius-asymmetric-1: 30px 12px 30px 12px;
+  --radius-asymmetric-2: 12px 30px 12px 30px;
+  
+  /* Shadows (Subtle, color-on-color shadows for organic feel) */
+  --shadow-sm: 0 2px 8px rgba(28, 20, 16, 0.05);
+  --shadow-md: 0 8px 24px rgba(28, 20, 16, 0.08);
+  --shadow-lg: 0 16px 40px rgba(28, 20, 16, 0.10);
+  --shadow-xl: 0 24px 60px rgba(28, 20, 16, 0.14);
+  --shadow-primary: 0 12px 28px rgba(232, 64, 12, 0.22);
+  --shadow-accent: 0 8px 20px rgba(245, 166, 35, 0.20);
+  
+  /* Transitions */
+  --transition-fast: 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  /* Global Layout */
+  --max-width: 1280px;
+  --header-height: 80px;
+}
+
+/* --- CSS Reset --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg-base);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography & Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
+h2 { font-size: clamp(2rem, 4vw, 3rem); }
+h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h4 { font-size: 1.25rem; }
+
+p {
+  color: var(--color-text-muted);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* --- Utility Classes --- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-sm);
+  padding-right: var(--spacing-sm);
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+  }
+}
+
+.section {
+  padding-top: var(--spacing-xl);
+  padding-bottom: var(--spacing-xl);
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding-top: var(--spacing-xxl);
+    padding-bottom: var(--spacing-xxl);
+  }
+}
+
+.text-center { text-align: center; }
+.text-primary { color: var(--color-primary); }
+.text-accent { color: var(--color-accent); }
+
+.flex { display: flex; }
+.grid { display: grid; }
+
+.section-title-wrapper {
+  max-width: 650px;
+  margin: 0 auto var(--spacing-lg) auto;
+}
+
+.section-subtitle {
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-xs);
+  display: inline-block;
+}
+
+.section-title {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  margin-bottom: var(--spacing-sm);
+}
+
+.section-desc {
+  font-size: 1.1rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

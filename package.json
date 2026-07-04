@@ -1,0 +1,22 @@
+{
+  "name": "foodie-marketing-website",
+  "version": "1.0.0",
+  "description": "Premium client-facing marketing website for Foodie restaurant chain.",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "restaurant",
+    "food",
+    "marketing",
+    "agency"
+  ],
+  "author": "Antigravity",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
